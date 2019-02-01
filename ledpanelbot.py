@@ -70,28 +70,28 @@ def message_handler(bot, update):
 		if update.message.text=="VIDEO1":
 			if os.path.exists("video1.mov"):
 				os.system("sudo pkill omxplayer")
-				os.system("omxplayer --win 0,0,128,64 --orientation 270 -o local --loop video1.mov &")
+				os.system("omxplayer --win 0,0,256,640 --orientation 0 -o local --loop video1.mov &")
 			else:
 				bot.sendMessage(update.message.chat_id, "Il video non esiste")
 						
 		if update.message.text=="VIDEO2":
 			if os.path.exists("video2.mov"):
 				os.system("sudo pkill omxplayer")
-				os.system("omxplayer --win 0,0,128,64 --orientation 270 -o local --loop video2.mov &")
+				os.system("omxplayer --win 0,0,256,640 --orientation 0 -o local --loop video2.mov &")
 			else:
 				bot.sendMessage(update.message.chat_id, "Il video non esiste")
 
 		if update.message.text=="VIDEO3":
 			if os.path.exists("video3.mov"):
 				os.system("sudo pkill omxplayer")
-				os.system("omxplayer --win 0,0,128,64 --orientation 270 -o local --loop video3.mov &")
+				os.system("omxplayer --win 0,0,256,640 --orientation 0 -o local --loop video3.mov &")
 			else:
 				bot.sendMessage(update.message.chat_id, "Il video non esiste")
 
 		if update.message.text=="VIDEO4":
 			if os.path.exists("video4.mov"):
 				os.system("sudo pkill omxplayer")
-				os.system("omxplayer --win 0,0,128,64 --orientation 270 -o local --loop video4.mov &")
+				os.system("omxplayer --win 0,0,256,640 --orientation 0 -o local --loop video4.mov &")
 			else:
 				bot.sendMessage(update.message.chat_id, "Il video non esiste")
 
@@ -122,7 +122,7 @@ def main():
 	global screen
 	
 	#@LedPanelBot
-	updater = telegram.ext.Updater("142714954:AAFnldaDORFxnOkoKciPaoBFjjs03kh8DBo")	
+	updater = telegram.ext.Updater("insert your bot token here")	
 	
 	# Get the dispatcher to register handlers
 	dp = updater.dispatcher

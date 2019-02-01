@@ -28,6 +28,10 @@ or copy only the source you need.
 Create your own bot with <https://telegram.me/BotFather> using your Telegram
 client then use the token you got inside the bot source example:
 
-	mytoken="token of your bot"	
+	updater = telegram.ext.Updater("insert your bot token here")	
+	
+Launch the bot by typing:
+
+	python ledpanelbot.py	
 
 
