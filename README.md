@@ -33,5 +33,40 @@ client then use the token you got inside the bot source example:
 Launch the bot by typing:
 
 	python ledpanelbot.py	
+	
+##Create a service
 
+To launch the bot at startup as a service you have to add it to systemd.
+
+Create a file called ledpanelbot.service in /lib/systemd/system directory:
+
+	nano /lib/systemd/system/ledpanelbot.service
+	
+and save in it this content:
+
+	[Unit]
+	Description=LedPanelBot
+	After=network.target
+
+	[Service]
+	Type=idle
+	ExecStart=/usr/bin/python /pi/LedPanelBot/ledpanelbot.py
+	Restart=always
+	User=pi
+
+	[Install]
+	WantedBy=multi-user.target
+
+Enable the service by typing:
+
+	systemctl daemon-reload
+	systemctl enable ledpanelbot
+
+Check if it is enabled:
+
+	systemctl list-unit-files | grep enabled
+
+Reboot or starts it manually by typing:
+
+	systemctl start ledpanelbot	
 
