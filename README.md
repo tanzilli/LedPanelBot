@@ -34,13 +34,13 @@ Launch the bot by typing:
 
 	python ledpanelbot.py	
 	
-##Create a service
+## Create a service
 
 To launch the bot at startup as a service you have to add it to systemd.
 
 Create a file called ledpanelbot.service in /lib/systemd/system directory:
 
-	nano /lib/systemd/system/ledpanelbot.service
+	sudo nano /lib/systemd/system/ledpanelbot.service
 	
 and save in it this content:
 
@@ -50,7 +50,8 @@ and save in it this content:
 
 	[Service]
 	Type=idle
-	ExecStart=/usr/bin/python /pi/LedPanelBot/ledpanelbot.py
+	WorkingDirectory=/home/pi/LedPanelBot
+	ExecStart=/usr/bin/python ledpanelbot.py
 	Restart=always
 	User=pi
 
@@ -59,14 +60,14 @@ and save in it this content:
 
 Enable the service by typing:
 
-	systemctl daemon-reload
-	systemctl enable ledpanelbot
+	sudo systemctl daemon-reload
+	sudo systemctl enable ledpanelbot
 
 Check if it is enabled:
 
-	systemctl list-unit-files | grep enabled
+	sudo systemctl list-unit-files | grep enabled
 
 Reboot or starts it manually by typing:
 
-	systemctl start ledpanelbot	
+	sudo systemctl start ledpanelbot	
 
